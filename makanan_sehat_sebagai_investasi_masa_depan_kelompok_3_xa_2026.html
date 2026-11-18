@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makanan Sehat Sebagai Investasi Masa Depan | Kelompok 3 XA 2026</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        leaf: {
+                            50: '#f2fbf5',
+                            100: '#e1f6e8',
+                            200: '#c4ecd2',
+                            500: '#27a359',
+                            600: '#1b8446',
+                            700: '#176939',
+                            800: '#165330',
+                            900: '#134529',
+                        },
+                        cream: {
+                            50: '#fdfcf8',
+                            100: '#faf6ec',
+                            200: '#f3ebd5',
+                        },
+                        mango: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Kustomisasi halus untuk animasi dan efek kartu */
+        .glass-nav {
+            background: rgba(253, 252, 248, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .checklist-item input:checked + span {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+        /* Pola latar belakang segar */
+        .bg-fresh-pattern {
+            background-color: #fdfcf8;
+            background-image: radial-gradient(#c4ecd2 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-stone-800 antialiased selection:bg-leaf-200 selection:text-leaf-900 overflow-x-hidden">
+
+    <!-- 1. STICKY NAVBAR -->
+    <header class="sticky top-0 z-50 glass-nav border-b border-leaf-100 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <!-- Logo / Brand -->
+                <a href="#beranda" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-leaf-500 to-leaf-700 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i data-lucide="salad" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="font-display font-extrabold text-leaf-800 text-base sm:text-lg tracking-tight block leading-none">HealthyFood</span>
+                        <span class="text-[11px] font-semibold text-mango-600 uppercase tracking-wider">Kelompok 3 • XA 2026</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                    <a href="#beranda" class="px-3.5 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-leaf-700 hover:bg-leaf-50 transition-colors">Beranda</a>
+                    <a href="#latar-belakang" class="px-3.5 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-leaf-700 hover:bg-leaf-50 transition-colors">Latar Belakang</a>
+                    <a href="#konsep" class="px-3.5 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-leaf-700 hover:bg-leaf-50 transition-colors">Konsep & Profil</a>
+                    <a href="#menu-gizi" class="px-3.5 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-leaf-700 hover:bg-leaf-50 transition-colors">Menu & Gizi</a>
+                    <a href="#anggaran" class="px-3.5 py-2 rounded-xl text-sm font-medium text-stone-600 hover:text-leaf-700 hover:bg-leaf-50 transition-colors">Anggaran</a>
+                    <a href="#resep" class="px-4 py-2 rounded-xl text-sm font-semibold bg-leaf-600 text-white hover:bg-leaf-700 shadow-sm transition-all">Panduan Resep</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Buka Menu" class="md:hidden p-2.5 rounded-xl text-stone-700 hover:bg-leaf-100 transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-50 border-b border-leaf-100 px-4 pt-2 pb-5 space-y-1.5 shadow-lg">
+            <a href="#beranda" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-stone-700 hover:bg-leaf-50 hover:text-leaf-700">Beranda & Anggota</a>
+            <a href="#latar-belakang" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-stone-700 hover:bg-leaf-50 hover:text-leaf-700">Latar Belakang, Tujuan & Manfaat</a>
+            <a href="#konsep" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-stone-700 hover:bg-leaf-50 hover:text-leaf-700">Konsep Produk & Profil Lulusan</a>
+            <a href="#menu-gizi" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-stone-700 hover:bg-leaf-50 hover:text-leaf-700">Menu Sehat & Rincian Gizi</a>
+            <a href="#anggaran" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-stone-700 hover:bg-leaf-50 hover:text-leaf-700">Rencana Anggaran Biaya (RAB)</a>
+            <a href="#resep" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-semibold bg-leaf-600 text-white text-center mt-2">Panduan Resep & Langkah</a>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION & IDENTITAS KELOMPOK -->
+    <section id="beranda" class="relative bg-fresh-pattern pt-10 pb-16 sm:pt-16 sm:pb-24 overflow-hidden">
+        <!-- Decorative blobs -->
+        <div class="absolute -top-24 -right-24 w-80 h-80 bg-mango-400/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -left-24 w-72 h-72 bg-leaf-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                <!-- Left Text & Group Members -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-leaf-100 border border-leaf-200 text-leaf-800 text-xs sm:text-sm font-semibold shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-leaf-600 animate-pulse"></span>
+                        Proyek Kokurikuler Healthy Food Challenge • Kelas XA 2026
+                    </div>
+
+                    <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[3.4rem] text-stone-900 leading-[1.15] tracking-tight">
+                        Makanan Sehat Sebagai <span class="text-transparent bg-clip-text bg-gradient-to-r from-leaf-600 via-leaf-500 to-mango-500">Investasi Masa Depan</span>
+                    </h1>
+
+                    <p class="text-stone-600 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Inovasi kuliner sehat, praktis, lezat, dan terjangkau untuk remaja: perpaduan nutrisi seimbang antara <strong>Kebab Sehat</strong> kaya protein dan <strong>Smoothie Mangga Pisang</strong> yang menyegarkan.
+                    </p>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap gap-3 pt-1">
+                        <a href="#menu-gizi" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-leaf-600 hover:bg-leaf-700 text-white font-semibold text-sm sm:text-base shadow-lg shadow-leaf-600/25 transition-all hover:-translate-y-0.5">
+                            <i data-lucide="sparkles" class="w-5 h-5"></i>
+                            Eksplorasi Menu & Gizi
+                        </a>
+                        <a href="#resep" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-white hover:bg-cream-100 text-stone-800 border border-stone-200 font-semibold text-sm sm:text-base shadow-sm transition-all hover:-translate-y-0.5">
+                            <i data-lucide="chef-hat" class="w-5 h-5 text-mango-600"></i>
+                            Lihat Resep & Cara Buat
+                        </a>
+                    </div>
+
+                    <!-- Identitas Anggota Kelompok 3 -->
+                    <div class="bg-white/90 backdrop-blur border border-leaf-100 rounded-3xl p-5 sm:p-6 shadow-md mt-6">
+                        <div class="flex items-center justify-between mb-3.5">
+                            <div class="flex items-center gap-2">
+                                <div class="w-8 h-8 rounded-xl bg-mango-400/20 text-mango-600 flex items-center justify-center">
+                                    <i data-lucide="users" class="w-4 h-4"></i>
+                                </div>
+                                <h2 class="font-display font-bold text-stone-900 text-sm sm:text-base">Anggota Kelompok 3 (XA 2026)</h2>
+                            </div>
+                            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-leaf-50 text-leaf-700 border border-leaf-200">6 Anggota</span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+                            <div class="flex items-center gap-2.5 p-2.5 rounded-2xl bg-cream-50 border border-cream-200">
+                                <span class="w-7 h-7 rounded-full bg-leaf-600 text-white text-xs font-bold flex items-center justify-center shrink-0">ZA</span>
+                                <span class="text-xs sm:text-sm font-medium text-stone-800">Zahira Alya Devany</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 p-2.5 rounded-2xl bg-cream-50 border border-cream-200">
+                                <span class="w-7 h-7 rounded-full bg-mango-500 text-white text-xs font-bold flex items-center justify-center shrink-0">HQ</span>
+                                <span class="text-xs sm:text-sm font-medium text-stone-800">Haniditha Qianna Oentari</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 p-2.5 rounded-2xl bg-cream-50 border border-cream-200">
+                                <span class="w-7 h-7 rounded-full bg-leaf-500 text-white text-xs font-bold flex items-center justify-center shrink-0">JM</span>
+                                <span class="text-xs sm:text-sm font-medium text-stone-800">Jhasmine Malta</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 p-2.5 rounded-2xl bg-cream-50 border border-cream-200">
+                                <span class="w-7 h-7 rounded-full bg-amber-600 text-white text-xs font-bold flex items-center justify-center shrink-0">AJ</span>
+                                <span class="text-xs sm:text-sm font-medium text-stone-800">Asad Jabar Ataya</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 p-2.5 rounded-2xl bg-cream-50 border border-cream-200">
+                                <span class="w-7 h-7 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center shrink-0">NA</span>
+                                <span class="text-xs sm:text-sm font-medium text-stone-800">Nailul Akbar Annabi</span>
+                            </div>
+                            <div class="flex items-center gap-2.5 p-2.5 rounded-2xl bg-cream-50 border border-cream-200">
+                                <span class="w-7 h-7 rounded-full bg-orange-500 text-white text-xs font-bold flex items-center justify-center shrink-0">LA</span>
+                                <span class="text-xs sm:text-sm font-medium text-stone-800">Litza Aprilia .A</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Showcase Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative bg-gradient-to-br from-leaf-600 via-leaf-700 to-emerald-900 rounded-[2.25rem] p-6 sm:p-8 text-white shadow-2xl border border-leaf-500/30">
+                        <!-- Floating badge -->
+                        <div class="inline-flex items-center gap-1.5 bg-mango-400 text-stone-900 font-bold text-xs px-3.5 py-1.5 rounded-full mb-5 shadow-md">
+                            <i data-lucide="award" class="w-4 h-4"></i>
+                            Combo Sehat Pilihan Remaja
+                        </div>
+
+                        <!-- Visual SVG Illustration of Kebab & Smoothie -->
+                        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-5 mb-6 border border-white/15 flex items-center justify-around gap-4">
+                            <!-- Kebab SVG -->
+                            <div class="text-center">
+                                <svg class="w-28 h-28 mx-auto drop-shadow-lg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Lettuce & Veggies -->
+                                    <circle cx="48" cy="36" r="16" fill="#4ADE80"/>
+                                    <circle cx="68" cy="34" r="15" fill="#22C55E"/>
+                                    <circle cx="58" cy="28" r="14" fill="#86EFAC"/>
+                                    <!-- Tomato -->
+                                    <circle cx="45" cy="42" r="8" fill="#EF4444"/>
+                                    <circle cx="70" cy="40" r="8" fill="#DC2626"/>
+                                    <!-- Grilled Chicken -->
+                                    <rect x="48" y="34" width="22" height="12" rx="6" fill="#B45309"/>
+                                    <rect x="52" y="42" width="18" height="10" rx="5" fill="#92400E"/>
+                                    <!-- Tortilla Wrap -->
+                                    <path d="M32 45C32 45 45 55 60 55C75 55 88 45 88 45L78 102C76 108 44 108 42 102L32 45Z" fill="#FDE68A"/>
+                                    <path d="M32 45L85 68L78 102C76 108 44 108 42 102L32 45Z" fill="#FCD34D"/>
+                                    <circle cx="52" cy="75" r="3" fill="#D97706" opacity="0.45"/>
+                                    <circle cx="67" cy="84" r="4" fill="#D97706" opacity="0.45"/>
+                                    <circle cx="55" cy="92" r="2.5" fill="#D97706" opacity="0.45"/>
+                                </svg>
+                                <span class="text-xs font-bold text-leaf-100 block mt-1">Kebab Sehat</span>
+                                <span class="text-[11px] text-mango-300 font-semibold">± 350 kkal • 29g Protein</span>
+                            </div>
+
+                            <div class="h-24 w-px bg-white/20"></div>
+
+                            <!-- Smoothie SVG -->
+                            <div class="text-center">
+                                <svg class="w-28 h-28 mx-auto drop-shadow-lg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Straw -->
+                                    <path d="M68 42L82 14L88 17L74 45" fill="#FFFFFF"/>
+                                    <path d="M72 34L76 26L81 29L77 37" fill="#EF4444"/>
+                                    <!-- Glass -->
+                                    <path d="M38 38H82L75 102C74.5 106 71 108 67 108H53C49 108 45.5 106 45 102L38 38Z" fill="#FEF3C7" fill-opacity="0.35" stroke="#FFFFFF" stroke-width="2.5"/>
+                                    <!-- Mango Banana Liquid -->
+                                    <path d="M40 48H80L74 100C73.5 103 71 105 68 105H52C49 105 46.5 103 46 100L40 48Z" fill="#FBBF24"/>
+                                    <!-- Mango Slice Garnish -->
+                                    <path d="M30 38C30 29 38 24 46 28L38 42L30 38Z" fill="#F59e0b"/>
+                                    <!-- Highlight -->
+                                    <path d="M46 54L49 96" stroke="#FEF9C3" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+                                </svg>
+                                <span class="text-xs font-bold text-leaf-100 block mt-1">Smoothie Mangga Pisang</span>
+                                <span class="text-[11px] text-mango-300 font-semibold">Kaya Vit A, C & Kalium</span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="grid grid-cols-3 gap-3 text-center">
+                            <div class="bg-white/10 rounded-2xl p-3">
+                                <div class="font-display font-extrabold text-xl sm:text-2xl text-mango-300">100%</div>
+                                <div class="text-[11px] text-leaf-100 mt-0.5">Bahan Segar</div>
+                            </div>
+                            <div class="bg-white/10 rounded-2xl p-3">
+                                <div class="font-display font-extrabold text-xl sm:text-2xl text-white">29g</div>
+                                <div class="text-[11px] text-leaf-100 mt-0.5">Protein Kebab</div>
+                            </div>
+                            <div class="bg-white/10 rounded-2xl p-3">
+                                <div class="font-display font-extrabold text-xl sm:text-2xl text-mango-300">Hemat</div>
+                                <div class="text-[11px] text-leaf-100 mt-0.5">Ramah Pelajar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. LATAR BELAKANG, TUJUAN, MANFAAT & NILAI INOVATIF -->
+    <section id="latar-belakang" class="py-16 sm:py-24 bg-white border-y border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+            
+            <!-- Latar Belakang & Nilai Inovatif -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal">
+                <!-- Latar Belakang -->
+                <div class="bg-cream-50 rounded-3xl p-7 sm:p-9 border border-cream-200 shadow-sm relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-leaf-600 text-white flex items-center justify-center mb-5 shadow-md">
+                        <i data-lucide="book-open" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-stone-900 mb-4">Latar Belakang</h2>
+                    <div class="space-y-3.5 text-stone-600 text-sm sm:text-base leading-relaxed">
+                        <p class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-leaf-600 shrink-0 mt-0.5"></i>
+                            <span>Makanan sehat memiliki peran krusial dalam menjaga kebugaran tubuh dan memenuhi kebutuhan nutrisi harian secara optimal.</span>
+                        </p>
+                        <p class="flex items-start gap-3">
+                            <i data-lucide="alert-circle" class="w-5 h-5 text-mango-500 shrink-0 mt-0.5"></i>
+                            <span>Saat ini masih banyak masyarakat—terutama <strong>kalangan remaja</strong>—lebih memilih makanan cepat saji (<em>fast food</em>) karena faktor kepraktisan, rasa, dan minimnya kesadaran pola makan sehat.</span>
+                        </p>
+                        <p class="flex items-start gap-3">
+                            <i data-lucide="sprout" class="w-5 h-5 text-leaf-600 shrink-0 mt-0.5"></i>
+                            <span>Oleh karena itu, edukasi dan inovasi makanan sehat sejak dini sangat penting untuk membangun kebiasaan hidup berkualitas.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Nilai Inovatif -->
+                <div class="bg-gradient-to-br from-amber-50 to-orange-50/70 rounded-3xl p-7 sm:p-9 border border-amber-200/80 shadow-sm relative overflow-hidden">
+                    <div class="w-12 h-12 rounded-2xl bg-mango-500 text-white flex items-center justify-center mb-5 shadow-md">
+                        <i data-lucide="lightbulb" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-stone-900 mb-4">Nilai Inovatif</h2>
+                    <div class="space-y-3.5 text-stone-700 text-sm sm:text-base leading-relaxed">
+                        <p class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-mango-500/20 text-mango-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                            <span>Mengajak masyarakat mengubah kebiasaan makan melalui pilihan kuliner yang <strong>bergizi, praktis, menarik, dan terjangkau</strong>.</span>
+                        </p>
+                        <p class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-mango-500/20 text-mango-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                            <span>Memanfaatkan bahan makanan sehat lokal yang mudah ditemukan menjadi sajian kekinian yang digemari remaja.</span>
+                        </p>
+                        <p class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-mango-500/20 text-mango-700 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+                            <span>Menjadikan makanan sehat bukan sekadar kebutuhan, melainkan bagian dari <strong>gaya hidup modern</strong> untuk masa depan.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Tujuan Proyek -->
+            <div class="reveal">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-xs font-bold uppercase tracking-widest text-leaf-600">Fokus & Arah Kegiatan</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-stone-900 mt-1">Tujuan Proyek</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="bg-cream-50 hover:bg-leaf-50/70 transition-colors p-6 rounded-3xl border border-stone-200/80 shadow-sm">
+                        <span class="font-display font-extrabold text-3xl text-leaf-600/30 block mb-2">01</span>
+                        <h3 class="font-display font-bold text-stone-900 text-base mb-2">Kesadaran Masyarakat</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed">Meningkatkan kesadaran masyarakat tentang pentingnya mengonsumsi makanan sehat dan bergizi.</p>
+                    </div>
+                    <div class="bg-cream-50 hover:bg-leaf-50/70 transition-colors p-6 rounded-3xl border border-stone-200/80 shadow-sm">
+                        <span class="font-display font-extrabold text-3xl text-mango-500/40 block mb-2">02</span>
+                        <h3 class="font-display font-bold text-stone-900 text-base mb-2">Pemahaman Manfaat</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed">Memberikan pemahaman komprehensif mengenai manfaat makanan sehat bagi kesehatan tubuh.</p>
+                    </div>
+                    <div class="bg-cream-50 hover:bg-leaf-50/70 transition-colors p-6 rounded-3xl border border-stone-200/80 shadow-sm">
+                        <span class="font-display font-extrabold text-3xl text-leaf-600/30 block mb-2">03</span>
+                        <h3 class="font-display font-bold text-stone-900 text-base mb-2">Penerapan Sehari-hari</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed">Mendorong masyarakat untuk menerapkan pola makan sehat secara konsisten dalam keseharian.</p>
+                    </div>
+                    <div class="bg-cream-50 hover:bg-leaf-50/70 transition-colors p-6 rounded-3xl border border-stone-200/80 shadow-sm">
+                        <span class="font-display font-extrabold text-3xl text-mango-500/40 block mb-2">04</span>
+                        <h3 class="font-display font-bold text-stone-900 text-base mb-2">Edukasi Gizi Remaja</h3>
+                        <p class="text-sm text-stone-600 leading-relaxed">Mengajak remaja untuk lebih cermat memperhatikan kandungan gizi dalam setiap makanan yang dikonsumsi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Manfaat -->
+            <div class="bg-leaf-900 text-white rounded-[2.25rem] p-7 sm:p-10 lg:p-12 shadow-xl reveal">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-mango-300">Dampak Positif</span>
+                        <h2 class="font-display font-extrabold text-2xl sm:text-3xl mt-1">Manfaat Penerapan Pola Makan Sehat</h2>
+                    </div>
+                    <p class="text-leaf-200 text-sm max-w-md">Memberikan nilai guna menyeluruh mulai dari diri sendiri hingga generasi masa depan.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/10">
+                        <div class="w-10 h-10 rounded-xl bg-leaf-500/30 text-leaf-200 flex items-center justify-center mb-3">
+                            <i data-lucide="user-check" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-mango-300 mb-1.5">Bagi Individu</h3>
+                        <p class="text-sm text-leaf-100 leading-relaxed">Membantu menjaga kesehatan tubuh dan memenuhi kebutuhan nutrisi sehari-hari.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/10">
+                        <div class="w-10 h-10 rounded-xl bg-leaf-500/30 text-leaf-200 flex items-center justify-center mb-3">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-mango-300 mb-1.5">Bagi Masyarakat</h3>
+                        <p class="text-sm text-leaf-100 leading-relaxed">Meningkatkan kesadaran kolektif akan pentingnya mengonsumsi makanan sehat.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/10">
+                        <div class="w-10 h-10 rounded-xl bg-leaf-500/30 text-leaf-200 flex items-center justify-center mb-3">
+                            <i data-lucide="school" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-mango-300 mb-1.5">Lingkungan Sekolah</h3>
+                        <p class="text-sm text-leaf-100 leading-relaxed">Mendorong kebiasaan hidup sehat dan pemilihan jajanan bergizi di kalangan siswa.</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/10">
+                        <div class="w-10 h-10 rounded-xl bg-leaf-500/30 text-leaf-200 flex items-center justify-center mb-3">
+                            <i data-lucide="trending-up" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-mango-300 mb-1.5">Bagi Masa Depan</h3>
+                        <p class="text-sm text-leaf-100 leading-relaxed">Membantu menciptakan generasi penerus yang lebih sehat, bugar, dan produktif.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. KONSEP PRODUK & DIMENSI PROFIL LULUSAN -->
+    <section id="konsep" class="py-16 sm:py-24 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+            
+            <!-- Konsep Kebab Sehat -->
+            <div class="bg-white rounded-3xl p-7 sm:p-10 border border-leaf-100 shadow-md flex flex-col lg:flex-row items-center gap-8 reveal">
+                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-gradient-to-br from-leaf-500 to-mango-500 text-white flex items-center justify-center shrink-0 shadow-lg">
+                    <i data-lucide="utensils" class="w-10 h-10 sm:w-12 sm:h-12"></i>
+                </div>
+                <div class="space-y-3 text-center lg:text-left">
+                    <span class="inline-block px-3 py-1 rounded-full bg-leaf-100 text-leaf-800 text-xs font-bold">Konsep Produk Utama</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-stone-900">A. Makanan Sehat (Kebab Sehat)</h2>
+                    <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+                        Kebab ini dirancang khusus dengan memperhatikan <strong>keseimbangan kandungan gizi</strong> serta <strong>kebersihan bahan makanan</strong>. Penggunaan sayuran segar (selada, tomat, timun), daging dada ayam tanpa lemak, serta takaran saus yang terkontrol menjadikan kebab ini pilihan kuliner yang lezat, higienis, sekaligus mampu memberikan energi dan nutrisi optimal bagi tubuh.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Dimensi Profil Lulusan (Kartu Interaktif) -->
+            <div class="reveal">
+                <div class="text-center max-w-2xl mx-auto mb-8">
+                    <span class="text-xs font-bold uppercase tracking-widest text-mango-600">Karakter & Kompetensi</span>
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-stone-900 mt-1">Dimensi Profil Lulusan</h2>
+                    <p class="text-sm text-stone-600 mt-2">Klik salah satu kartu dimensi di bawah untuk melihat implementasinya dalam proyek kelompok kami.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4" id="profil-cards">
+                    <!-- Card 1 -->
+                    <button type="button" onclick="selectProfil(0)" class="profil-btn text-left p-5 rounded-3xl bg-leaf-600 text-white shadow-lg transition-all transform hover:-translate-y-1 border-2 border-leaf-600">
+                        <div class="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center mb-3">
+                            <i data-lucide="palette" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-base mb-1.5">Kreativitas</h3>
+                        <p class="text-xs leading-relaxed opacity-90">Mengembangkan kebab menjadi makanan sehat yang modern dan menarik minat remaja.</p>
+                    </button>
+
+                    <!-- Card 2 -->
+                    <button type="button" onclick="selectProfil(1)" class="profil-btn text-left p-5 rounded-3xl bg-white text-stone-800 shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 border-2 border-stone-200">
+                        <div class="w-10 h-10 rounded-2xl bg-mango-100 text-mango-600 flex items-center justify-center mb-3">
+                            <i data-lucide="handshake" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-base mb-1.5">Kolaborasi</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed">Bekerja sama secara harmonis antaranggota dalam merancang dan membuat produk.</p>
+                    </button>
+
+                    <!-- Card 3 -->
+                    <button type="button" onclick="selectProfil(2)" class="profil-btn text-left p-5 rounded-3xl bg-white text-stone-800 shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 border-2 border-stone-200">
+                        <div class="w-10 h-10 rounded-2xl bg-leaf-100 text-leaf-600 flex items-center justify-center mb-3">
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-base mb-1.5">Kemandirian</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed">Bertanggung jawab penuh atas pembagian tugas masing-masing dari persiapan hingga penyajian.</p>
+                    </button>
+
+                    <!-- Card 4 -->
+                    <button type="button" onclick="selectProfil(3)" class="profil-btn text-left p-5 rounded-3xl bg-white text-stone-800 shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 border-2 border-stone-200">
+                        <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-3">
+                            <i data-lucide="brain-circuit" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-base mb-1.5">Penalaran Kritis</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed">Menganalisis dan memilih komposisi bahan yang memiliki kandungan gizi seimbang.</p>
+                    </button>
+
+                    <!-- Card 5 -->
+                    <button type="button" onclick="selectProfil(4)" class="profil-btn text-left p-5 rounded-3xl bg-white text-stone-800 shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 border-2 border-stone-200">
+                        <div class="w-10 h-10 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-3">
+                            <i data-lucide="megaphone" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-base mb-1.5">Komunikasi</h3>
+                        <p class="text-xs text-stone-600 leading-relaxed">Menjelaskan informasi nilai gizi dan manfaat kebab sehat secara persuasif kepada orang lain.</p>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. MENU SEHAT & KALKULATOR / RINCIAN KANDUNGAN GIZI INTERAKTIF -->
+    <section id="menu-gizi" class="py-16 sm:py-24 bg-white border-t border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+            <div class="text-center max-w-3xl mx-auto reveal">
+                <span class="text-xs font-bold uppercase tracking-widest text-leaf-600">Komposisi & Nutrisi</span>
+                <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-stone-900 mt-1">Rencana Menu Sehat & Rincian Gizi</h2>
+                <p class="text-stone-600 text-sm sm:text-base mt-2">Kombinasi makanan utama dan minuman pendamping yang saling melengkapi kebutuhan makronutrisi dan mikronutrisi harian.</p>
+            </div>
+
+            <!-- Interactive Nutrition Portion Calculator + Nutrition Facts Card -->
+            <div class="bg-gradient-to-br from-leaf-50 via-cream-50 to-amber-50 rounded-[2.25rem] p-6 sm:p-10 border border-leaf-200/80 shadow-lg reveal">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Left: Interactive Controls & Explanation -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white text-leaf-700 text-xs font-bold shadow-sm border border-leaf-100">
+                            <i data-lucide="calculator" class="w-4 h-4 text-mango-500"></i>
+                            Kalkulator Gizi Interaktif • Kebab Sehat
+                        </div>
+                        <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-stone-900">Hitung Asupan Gizi Sesuai Porsi</h3>
+                        <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
+                            Sesuaikan jumlah porsi <strong>Kebab Sehat</strong> yang dikonsumsi untuk melihat estimasi total kalori, karbohidrat, protein, lemak, serat, gula, dan natrium secara otomatis.
+                        </p>
+
+                        <!-- Portion Selector -->
+                        <div class="bg-white p-5 rounded-2xl border border-stone-200 shadow-sm space-y-3">
+                            <div class="flex justify-between items-center">
+                                <label for="porsi-slider" class="text-sm font-bold text-stone-800">Jumlah Porsi Kebab Sehat:</label>
+                                <span id="porsi-display" class="px-3.5 py-1 rounded-xl bg-leaf-600 text-white font-display font-bold text-sm">1 Porsi</span>
+                            </div>
+                            <input id="porsi-slider" type="range" min="1" max="5" value="1" class="w-full accent-leaf-600 cursor-pointer h-2 bg-stone-200 rounded-lg">
+                            <div class="flex justify-between text-xs text-stone-400 font-medium">
+                                <span>1 Porsi</span>
+                                <span>2 Porsi</span>
+                                <span>3 Porsi</span>
+                                <span>4 Porsi</span>
+                                <span>5 Porsi</span>
+                            </div>
+                        </div>
+
+                        <!-- Visual Macro Bars -->
+                        <div class="space-y-3 pt-1">
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1">
+                                    <span class="text-stone-700">Karbohidrat (Sumber Energi)</span>
+                                    <span id="bar-karbo-text" class="text-amber-600">± 39 g</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-stone-200 rounded-full overflow-hidden">
+                                    <div id="bar-karbo" class="h-full bg-mango-500 rounded-full transition-all duration-300" style="width: 48%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1">
+                                    <span class="text-stone-700">Protein (Pembentuk Otot & Jaringan)</span>
+                                    <span id="bar-protein-text" class="text-leaf-700">29 g</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-stone-200 rounded-full overflow-hidden">
+                                    <div id="bar-protein" class="h-full bg-leaf-600 rounded-full transition-all duration-300" style="width: 36%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1">
+                                    <span class="text-stone-700">Lemak Sehat Terkontrol</span>
+                                    <span id="bar-lemak-text" class="text-orange-600">9 g</span>
+                                </div>
+                                <div class="w-full h-2.5 bg-stone-200 rounded-full overflow-hidden">
+                                    <div id="bar-lemak" class="h-full bg-orange-400 rounded-full transition-all duration-300" style="width: 16%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Nutrition Facts Table Card -->
+                    <div class="lg:col-span-6">
+                        <div class="bg-white rounded-3xl p-6 sm:p-8 border-2 border-stone-900 shadow-xl">
+                            <div class="border-b-4 border-stone-900 pb-3 mb-4 flex justify-between items-end">
+                                <div>
+                                    <h4 class="font-display font-black text-2xl tracking-tight text-stone-900">INFORMASI NILAI GIZI</h4>
+                                    <p class="text-xs font-semibold text-stone-500">Kebab Sehat • Kelompok 3 XA 2026</p>
+                                </div>
+                                <span id="nf-porsi-badge" class="text-xs font-bold bg-mango-400 text-stone-900 px-2.5 py-1 rounded-lg">1 Porsi</span>
+                            </div>
+
+                            <div class="flex justify-between items-baseline border-b-2 border-stone-900 pb-3 mb-4">
+                                <span class="font-display font-bold text-lg text-stone-800">Energi Total (Kalori)</span>
+                                <span id="nf-kalori" class="font-display font-black text-3xl text-leaf-600">± 350 kkal</span>
+                            </div>
+
+                            <div class="divide-y divide-stone-200 text-sm">
+                                <div class="py-2.5 flex justify-between items-center">
+                                    <span class="font-bold text-stone-800">Karbohidrat Total</span>
+                                    <span id="nf-karbo" class="font-bold text-stone-900">± 39 gram</span>
+                                </div>
+                                <div class="py-2.5 flex justify-between items-center">
+                                    <span class="font-bold text-stone-800">Protein</span>
+                                    <span id="nf-protein" class="font-bold text-leaf-700">29 gram</span>
+                                </div>
+                                <div class="py-2.5 flex justify-between items-center">
+                                    <span class="font-bold text-stone-800">Lemak Total</span>
+                                    <span id="nf-lemak" class="font-bold text-stone-900">9 gram</span>
+                                </div>
+                                <div class="py-2.5 flex justify-between items-center pl-4">
+                                    <span class="text-stone-600">Serat Pangan</span>
+                                    <span id="nf-serat" class="font-semibold text-stone-800">± 3 gram</span>
+                                </div>
+                                <div class="py-2.5 flex justify-between items-center pl-4">
+                                    <span class="text-stone-600">Gula</span>
+                                    <span id="nf-gula" class="font-semibold text-stone-800">± 3 gram</span>
+                                </div>
+                                <div class="py-2.5 flex justify-between items-center">
+                                    <span class="font-bold text-stone-800">Natrium (Garam)</span>
+                                    <span id="nf-natrium" class="font-bold text-stone-900">± 400 mg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu 01 & Menu 02 Ingredient Benefits Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal">
+                <!-- Menu 01: Kebab Sehat -->
+                <div class="bg-cream-50 rounded-3xl p-6 sm:p-8 border border-leaf-200/70 shadow-sm">
+                    <div class="flex items-center gap-3.5 mb-5">
+                        <span class="w-12 h-12 rounded-2xl bg-leaf-600 text-white font-display font-extrabold text-lg flex items-center justify-center shadow-md">01</span>
+                        <div>
+                            <h3 class="font-display font-extrabold text-xl sm:text-2xl text-stone-900">Kebab Sehat</h3>
+                            <p class="text-xs sm:text-sm text-leaf-700 font-medium">Makanan Utama Tinggi Protein & Serat</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-600 mb-5 leading-relaxed">
+                        Dibuat menggunakan kulit tortilla dengan isian daging ayam dan sayuran segar seperti selada, tomat, serta timun. Mengandung karbohidrat, protein, vitamin, dan serat yang baik bagi tubuh.
+                    </p>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">Manfaat Setiap Bahan:</h4>
+                    <div class="space-y-2.5">
+                        <div class="bg-white p-3.5 rounded-2xl border border-stone-200/70 flex items-start gap-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold shrink-0">Tortilla</span>
+                            <p class="text-xs sm:text-sm text-stone-600">Mengandung karbohidrat yang berfungsi sebagai sumber energi utama untuk beraktivitas.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-stone-200/70 flex items-start gap-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-orange-100 text-orange-800 text-xs font-bold shrink-0">Daging Ayam</span>
+                            <p class="text-xs sm:text-sm text-stone-600">Kaya protein berkualitas tinggi yang membantu pertumbuhan dan memperbaiki jaringan tubuh.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-stone-200/70 flex items-start gap-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-leaf-100 text-leaf-800 text-xs font-bold shrink-0">Selada</span>
+                            <p class="text-xs sm:text-sm text-stone-600">Mengandung serat, vitamin A, dan vitamin K yang sangat baik untuk kesehatan pencernaan.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-stone-200/70 flex items-start gap-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-red-100 text-red-700 text-xs font-bold shrink-0">Tomat</span>
+                            <p class="text-xs sm:text-sm text-stone-600">Mengandung vitamin C dan antioksidan yang membantu menjaga daya tahan tubuh.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-stone-200/70 flex items-start gap-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 text-xs font-bold shrink-0">Timun</span>
+                            <p class="text-xs sm:text-sm text-stone-600">Memiliki kadar air tinggi dan vitamin yang membantu menjaga hidrasi tubuh tetap optimal.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menu 02: Smoothie Mangga Pisang -->
+                <div class="bg-cream-50 rounded-3xl p-6 sm:p-8 border border-amber-200/80 shadow-sm">
+                    <div class="flex items-center gap-3.5 mb-5">
+                        <span class="w-12 h-12 rounded-2xl bg-mango-500 text-white font-display font-extrabold text-lg flex items-center justify-center shadow-md">02</span>
+                        <div>
+                            <h3 class="font-display font-extrabold text-xl sm:text-2xl text-stone-900">Smoothie Mangga Pisang</h3>
+                            <p class="text-xs sm:text-sm text-mango-700 font-medium">Minuman Segar Kaya Vitamin & Antioksidan</p>
+                        </div>
+                    </div>
+                    <p class="text-sm text-stone-600 mb-5 leading-relaxed">
+                        Minuman sehat dari campuran buah mangga dan pisang matang yang dihaluskan bersama susu dan yogurt. Kaya akan vitamin, mineral, kalsium, dan serat alami.
+                    </p>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">Manfaat Setiap Bahan:</h4>
+                    <div class="space-y-2.5">
+                        <div class="bg-white p-3.5 rounded-2xl border border-stone-200/70 flex items-start gap-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-yellow-100 text-yellow-800 text-xs font-bold shrink-0">Pisang</span>
+                            <p class="text-xs sm:text-sm text-stone-600">Mengandung karbohidrat alami, serat, serta kalium untuk menjaga fungsi otot dan kesehatan jantung.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-stone-200/70 flex items-start gap-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 text-xs font-bold shrink-0">Mangga</span>
+                            <p class="text-xs sm:text-sm text-stone-600">Kaya vitamin A, vitamin C, dan antioksidan untuk kesehatan mata, kulit, dan imun tubuh.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-stone-200/70 flex items-start gap-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 text-xs font-bold shrink-0">Susu & Yogurt</span>
+                            <p class="text-xs sm:text-sm text-stone-600">Sumber protein dan kalsium yang berperan penting menjaga kekuatan serta kesehatan tulang.</p>
+                        </div>
+                        <div class="bg-white p-3.5 rounded-2xl border border-stone-200/70 flex items-start gap-3">
+                            <span class="px-2.5 py-1 rounded-lg bg-leaf-100 text-leaf-800 text-xs font-bold shrink-0">Serat Buah</span>
+                            <p class="text-xs sm:text-sm text-stone-600">Membantu melancarkan sistem pencernaan, menjaga kesehatan usus, dan memberi energi alami.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. RENCANA ANGGARAN BIAYA (RAB) INTERAKTIF -->
+    <section id="anggaran" class="py-16 sm:py-24 bg-cream-100/70 border-t border-cream-200">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 reveal">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs font-bold uppercase tracking-widest text-leaf-600">Transparansi Biaya Produksi</span>
+                <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-stone-900 mt-1">Rencana Anggaran Biaya (RAB)</h2>
+                <p class="text-stone-600 text-sm sm:text-base mt-2">Filter rincian belanja bahan berdasarkan kategori menu dengan perhitungan total otomatis.</p>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-2.5">
+                <button type="button" onclick="filterRAB('all')" id="rab-btn-all" class="rab-filter-btn px-5 py-2.5 rounded-2xl text-sm font-bold bg-leaf-600 text-white shadow-md transition-all">
+                    Semua Anggaran (Rp 295.000)
+                </button>
+                <button type="button" onclick="filterRAB('kebab')" id="rab-btn-kebab" class="rab-filter-btn px-5 py-2.5 rounded-2xl text-sm font-bold bg-white text-stone-700 hover:bg-leaf-50 border border-stone-200 transition-all">
+                    Kebab Sehat (Rp 202.000)
+                </button>
+                <button type="button" onclick="filterRAB('smoothie')" id="rab-btn-smoothie" class="rab-filter-btn px-5 py-2.5 rounded-2xl text-sm font-bold bg-white text-stone-700 hover:bg-amber-50 border border-stone-200 transition-all">
+                    Smoothie Mangga Pisang (Rp 93.000)
+                </button>
+            </div>
+
+            <!-- RAB Table Card -->
+            <div class="bg-white rounded-3xl shadow-lg border border-stone-200/80 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-leaf-800 text-white text-xs sm:text-sm uppercase tracking-wider">
+                                <th class="py-4 px-5 sm:px-6 font-bold">Kategori Menu</th>
+                                <th class="py-4 px-5 sm:px-6 font-bold">Nama Bahan</th>
+                                <th class="py-4 px-5 sm:px-6 font-bold">Jumlah</th>
+                                <th class="py-4 px-5 sm:px-6 font-bold text-right">Harga</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rab-table-body" class="divide-y divide-stone-100 text-sm sm:text-base">
+                            <!-- Diisi via JS agar dinamis & akurat -->
+                        </tbody>
+                        <tfoot>
+                            <tr class="bg-cream-50 border-t-2 border-leaf-600">
+                                <td colspan="3" class="py-4 px-5 sm:px-6 font-display font-extrabold text-stone-900 text-base sm:text-lg" id="rab-total-label">
+                                    Total Keseluruhan Anggaran
+                                </td>
+                                <td class="py-4 px-5 sm:px-6 font-display font-black text-leaf-700 text-lg sm:text-xl text-right" id="rab-total-value">
+                                    Rp 295.000
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="bg-white p-5 rounded-2xl border border-leaf-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-semibold text-stone-500 block">Subtotal Kebab Sehat</span>
+                        <span class="font-display font-extrabold text-xl text-leaf-700">Rp 202.000</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-leaf-100 text-leaf-600 flex items-center justify-center">
+                        <i data-lucide="sandwich" class="w-5 h-5"></i>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-amber-100 shadow-sm flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-semibold text-stone-500 block">Subtotal Smoothie</span>
+                        <span class="font-display font-extrabold text-xl text-mango-600">Rp 93.000</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-mango-600 flex items-center justify-center">
+                        <i data-lucide="cup-soda" class="w-5 h-5"></i>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-leaf-600 to-leaf-700 p-5 rounded-2xl text-white shadow-md flex items-center justify-between">
+                    <div>
+                        <span class="text-xs font-semibold text-leaf-100 block">Total Anggaran Keseluruhan</span>
+                        <span class="font-display font-extrabold text-xl">Rp 295.000</span>
+                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+                        <i data-lucide="wallet" class="w-5 h-5"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PANDUAN RESEP & LANGKAH PEMBUATAN (TAB INTERAKTIF + CHECKLIST) -->
+    <section id="resep" class="py-16 sm:py-24 bg-white border-t border-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 reveal">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-xs font-bold uppercase tracking-widest text-mango-600">Praktik Memasak Sehat</span>
+                <h2 class="font-display font-extrabold text-2xl sm:text-4xl text-stone-900 mt-1">Panduan Resep & Langkah Pembuatan</h2>
+                <p class="text-stone-600 text-sm sm:text-base mt-2">Pilih tab menu di bawah dan centang daftar alat, bahan, maupun langkah saat mempraktikkannya!</p>
+            </div>
+
+            <!-- Interactive Recipe Tabs -->
+            <div class="flex justify-center">
+                <div class="inline-flex p-1.5 rounded-2xl bg-cream-100 border border-cream-200 shadow-inner">
+                    <button type="button" onclick="switchRecipeTab('kebab')" id="tab-kebab" class="flex items-center gap-2 px-5 sm:px-7 py-3 rounded-xl font-display font-bold text-sm sm:text-base bg-leaf-600 text-white shadow-md transition-all">
+                        <i data-lucide="flame" class="w-4 h-4"></i>
+                        Resep 01: Kebab Sehat
+                    </button>
+                    <button type="button" onclick="switchRecipeTab('smoothie')" id="tab-smoothie" class="flex items-center gap-2 px-5 sm:px-7 py-3 rounded-xl font-display font-bold text-sm sm:text-base text-stone-600 hover:text-stone-900 transition-all">
+                        <i data-lucide="citrus" class="w-4 h-4"></i>
+                        Resep 02: Smoothie Mangga Pisang
+                    </button>
+                </div>
+            </div>
+
+            <!-- TAB 1: KEBAB SEHAT -->
+            <div id="content-kebab" class="space-y-8">
+                <!-- Alat & Bahan Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Alat -->
+                    <div class="bg-cream-50 rounded-3xl p-6 border border-stone-200/80">
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <div class="w-9 h-9 rounded-xl bg-stone-800 text-white flex items-center justify-center">
+                                <i data-lucide="wrench" class="w-4 h-4"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-lg text-stone-900">Alat yang Digunakan</h3>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-stone-700">
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Teflon atau wajan</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Spatula</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Pisau & Talenan</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Piring saji</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Mangkuk & Sendok</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Penjepit makanan</span></label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Bahan Utama -->
+                    <div class="bg-leaf-50/60 rounded-3xl p-6 border border-leaf-200/80">
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <div class="w-9 h-9 rounded-xl bg-leaf-600 text-white flex items-center justify-center">
+                                <i data-lucide="shopping-basket" class="w-4 h-4"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-lg text-stone-900">Bahan Utama Kebab</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-stone-700">
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Kulit tortilla</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>1/4 kg daging ayam fillet dada</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Selada segar</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>1 butir tomat & 1 butir timun</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>3 butir bawang putih & 1/2 bawang bombay</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Kecap manis, saus tiram, saus cabai</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-leaf-600"><span>Saus tomat & mayones secukupnya</span></label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Bahan Saus Kebab -->
+                    <div class="bg-amber-50/70 rounded-3xl p-6 border border-amber-200/80">
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <div class="w-9 h-9 rounded-xl bg-mango-500 text-white flex items-center justify-center">
+                                <i data-lucide="droplets" class="w-4 h-4"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-lg text-stone-900">Bahan Saus Kebab</h3>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-stone-700">
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>1 sdm yogurt</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>Saus cabai sesuai selera</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>1/4 – 1/2 perasan lemon</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>Garam secukupnya</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>Parsley (peterseli)</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 7 Langkah Pembuatan Kebab -->
+                <div class="bg-cream-50 rounded-3xl p-6 sm:p-8 border border-stone-200/80">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+                        <h3 class="font-display font-extrabold text-xl sm:text-2xl text-stone-900">7 Tahap Pembuatan Kebab Sehat</h3>
+                        <button type="button" onclick="resetChecklists('content-kebab')" class="text-xs font-semibold px-3 py-1.5 rounded-xl bg-white border border-stone-200 text-stone-600 hover:text-leaf-700 transition-colors">
+                            Reset Centang
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Step 1 -->
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-leaf-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-leaf-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-leaf-700 block text-sm mb-1">1. Persiapan Bahan</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Cuci tangan dengan sabun, lalu cuci bersih timun, tomat, dan selada di air mengalir. Iris tipis timun dan tomat, serta potong selada menjadi bagian kecil.</span>
+                            </span>
+                        </label>
+
+                        <!-- Step 2 -->
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-leaf-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-leaf-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-leaf-700 block text-sm mb-1">2. Mengolah / Marinasi Daging Ayam</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Potong fillet dada ayam memanjang. Campurkan irisan bawang putih, 3 sdm saus tiram, 1 sdm saus sambal, dan 1 sdt garam. Aduk rata dengan ayam dan marinasi selama 30 menit.</span>
+                            </span>
+                        </label>
+
+                        <!-- Step 3 -->
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-leaf-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-leaf-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-leaf-700 block text-sm mb-1">3. Menumis Daging</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Beri sedikit minyak di wajan, tumis 2 siung bawang putih iris dan 1/2 bawang bombay. Masukkan ayam marinasi, tambahkan sedikit air, garam, dan lada hingga matang.</span>
+                            </span>
+                        </label>
+
+                        <!-- Step 4 -->
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-leaf-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-leaf-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-leaf-700 block text-sm mb-1">4. Membuat Saus Kebab</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Campurkan 1 sdm yogurt, saus cabai secukupnya, perasan 1/2 lemon, dan taburan parsley dalam mangkuk, aduk hingga rata.</span>
+                            </span>
+                        </label>
+
+                        <!-- Step 5 -->
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-leaf-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-leaf-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-leaf-700 block text-sm mb-1">5. Menambahkan Isian Kebab</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Oleskan saus tomat dan mayones merata di tengah kulit tortilla. Susun selada sebagai lapisan pertama, lalu tambahkan potongan ayam matang, irisan timun, dan tomat secara merata.</span>
+                            </span>
+                        </label>
+
+                        <!-- Step 6 -->
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-leaf-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-leaf-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-leaf-700 block text-sm mb-1">6. Membentuk Kebab</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Lipat bagian bawah tortilla ke arah dalam untuk menahan isian, lipat sisi kanan dan kiri ke tengah, lalu gulung perlahan hingga tertutup rapat agar isian tidak keluar.</span>
+                            </span>
+                        </label>
+
+                        <!-- Step 7 -->
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-leaf-400 transition-colors md:col-span-2">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-leaf-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-leaf-700 block text-sm mb-1">7. Memanggang Kebab</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Panaskan teflon dengan api kecil, letakkan kebab dengan bagian lipatan menghadap ke bawah. Panggang dan balik perlahan hingga kedua sisi kecokelatan serta terasa renyah merata, lalu angkat dan sajikan.</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: SMOOTHIE MANGGA PISANG -->
+            <div id="content-smoothie" class="hidden space-y-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Alat -->
+                    <div class="bg-cream-50 rounded-3xl p-6 border border-stone-200/80">
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <div class="w-9 h-9 rounded-xl bg-stone-800 text-white flex items-center justify-center">
+                                <i data-lucide="wrench" class="w-4 h-4"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-lg text-stone-900">Alat yang Digunakan</h3>
+                        </div>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-stone-700">
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>Blender</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>Pisau & Talenan</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>Sendok & Spatula</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>Mangkuk / gelas saji</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>Gelas ukur</span></label></li>
+                        </ul>
+                    </div>
+
+                    <!-- Bahan -->
+                    <div class="bg-amber-50/70 rounded-3xl p-6 border border-amber-200/80">
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <div class="w-9 h-9 rounded-xl bg-mango-500 text-white flex items-center justify-center">
+                                <i data-lucide="shopping-basket" class="w-4 h-4"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-lg text-stone-900">Bahan Smoothie</h3>
+                        </div>
+                        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-stone-700">
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>100 gram buah mangga matang</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>100 gram pisang</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>100 ml susu cair (rendah lemak)</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>2 sdm yoghurt plain</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>1 sdt madu (opsional)</span></label></li>
+                            <li class="checklist-item"><label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" class="w-4 h-4 rounded accent-mango-600"><span>Es batu secukupnya</span></label></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4 Langkah Pembuatan Smoothie -->
+                <div class="bg-cream-50 rounded-3xl p-6 sm:p-8 border border-stone-200/80">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+                        <h3 class="font-display font-extrabold text-xl sm:text-2xl text-stone-900">Langkah Pembuatan Smoothie Mangga Pisang</h3>
+                        <button type="button" onclick="resetChecklists('content-smoothie')" class="text-xs font-semibold px-3 py-1.5 rounded-xl bg-white border border-stone-200 text-stone-600 hover:text-mango-600 transition-colors">
+                            Reset Centang
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-mango-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-mango-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-mango-600 block text-sm mb-1">1. Persiapan Buah</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Kupas dan potong buah mangga matang serta pisang menjadi potongan kecil agar mudah dihaluskan.</span>
+                            </span>
+                        </label>
+
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-mango-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-mango-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-mango-600 block text-sm mb-1">2. Mengolah Bahan ke Blender</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Masukkan potongan mangga dan pisang ke dalam blender. Tambahkan yoghurt plain, susu cair, es batu agar segar, serta sedikit madu jika ingin rasa lebih manis.</span>
+                            </span>
+                        </label>
+
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-mango-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-mango-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-mango-600 block text-sm mb-1">3. Menghaluskan Bahan</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Tutup blender dengan rapat, nyalakan dan haluskan hingga lembut merata. Cek tekstur: jika terlalu kental, tambahkan sedikit susu cair, lalu matikan blender.</span>
+                            </span>
+                        </label>
+
+                        <label class="checklist-item bg-white p-5 rounded-2xl border border-stone-200/80 shadow-sm flex items-start gap-3.5 cursor-pointer hover:border-mango-400 transition-colors">
+                            <input type="checkbox" class="w-5 h-5 mt-0.5 rounded accent-mango-600 shrink-0">
+                            <span>
+                                <strong class="font-display text-mango-600 block text-sm mb-1">4. Menuangkan & Menyajikan</strong>
+                                <span class="text-xs sm:text-sm text-stone-600 leading-relaxed block">Siapkan mangkuk atau gelas saji yang bersih dan kering. Tuangkan smoothie mangga pisang secara perlahan, lalu ratakan permukaannya menggunakan sendok atau spatula agar rapi.</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. KESIMPULAN & FOOTER -->
+    <section class="py-16 sm:py-20 bg-gradient-to-b from-cream-50 to-leaf-50 border-t border-leaf-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <div class="bg-white rounded-[2.25rem] p-8 sm:p-12 border border-leaf-200 shadow-xl relative">
+                <div class="w-14 h-14 rounded-2xl bg-leaf-600 text-white flex items-center justify-center mx-auto mb-5 shadow-md">
+                    <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+                </div>
+                <span class="text-xs font-bold uppercase tracking-widest text-leaf-600">Refleksi Proyek Kokurikuler</span>
+                <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-stone-900 mt-1 mb-4">Kesimpulan</h2>
+                <p class="text-stone-600 text-sm sm:text-lg leading-relaxed">
+                    Melalui kegiatan kokurikuler bertema <strong>Healthy Food Challenge</strong>, kami memperoleh pengalaman dan pengetahuan baru tentang pentingnya mengonsumsi makanan sehat dan bergizi. Kegiatan ini mengajarkan kami untuk lebih cermat memperhatikan kandungan gizi dalam makanan, menjaga pola makan seimbang, serta menerapkan gaya hidup sehat dalam kehidupan sehari-hari. Diharapkan melalui inovasi ini, kesadaran masyarakat akan pentingnya makanan sehat sebagai investasi masa depan dapat terus meningkat.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-leaf-950 text-leaf-100 py-12 border-t border-leaf-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-leaf-900 border border-leaf-800 text-mango-300 text-xs font-bold">
+                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                Terima Kasih Atas Perhatiannya
+            </div>
+            <h3 class="font-display font-extrabold text-2xl sm:text-3xl text-white">Makanan Sehat Sebagai Investasi Masa Depan</h3>
+            <p class="text-sm text-leaf-300 max-w-xl mx-auto">
+                Disusun oleh <strong>Kelompok 3 — Kelas XA 2026</strong><br>
+                Zahira Alya Devany • Haniditha Qianna Oentari • Jhasmine Malta • Asad Jabar Ataya • Nailul Akbar Annabi • Litza Aprilia .A
+            </p>
+            <div class="pt-4 border-t border-leaf-900/80 text-xs text-leaf-400">
+                &copy; 2026 Kelompok 3 XA • Proyek Kokurikuler Healthy Food Challenge
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT INTERAKTIVITAS -->
+    <script>
+        // Inisialisasi Lucide Icons
+        lucide.createIcons();
+
+        // 1. Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 2. Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // 3. Dimensi Profil Lulusan Interactive Highlight
+        function selectProfil(index) {
+            const buttons = document.querySelectorAll('.profil-btn');
+            buttons.forEach((btn, idx) => {
+                const iconBox = btn.querySelector('div');
+                const desc = btn.querySelector('p');
+                if (idx === index) {
+                    btn.className = 'profil-btn text-left p-5 rounded-3xl bg-leaf-600 text-white shadow-lg transition-all transform -translate-y-1 border-2 border-leaf-600';
+                    iconBox.className = 'w-10 h-10 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-3';
+                    desc.className = 'text-xs leading-relaxed opacity-95';
+                } else {
+                    btn.className = 'profil-btn text-left p-5 rounded-3xl bg-white text-stone-800 shadow-sm hover:shadow-md transition-all transform hover:-translate-y-1 border-2 border-stone-200';
+                    iconBox.className = 'w-10 h-10 rounded-2xl bg-leaf-100 text-leaf-600 flex items-center justify-center mb-3';
+                    desc.className = 'text-xs text-stone-600 leading-relaxed';
+                }
+            });
+        }
+
+        // 4. Kalkulator Gizi Interaktif (Kebab Sehat)
+        const porsiSlider = document.getElementById('porsi-slider');
+        const baseNutrition = {
+            kalori: 350,
+            karbo: 39,
+            protein: 29,
+            lemak: 9,
+            serat: 3,
+            gula: 3,
+            natrium: 400
+        };
+
+        porsiSlider.addEventListener('input', (e) => {
+            const porsi = parseInt(e.target.value, 10);
+            document.getElementById('porsi-display').textContent = `${porsi} Porsi`;
+            document.getElementById('nf-porsi-badge').textContent = `${porsi} Porsi`;
+
+            const k = baseNutrition.kalori * porsi;
+            const c = baseNutrition.karbo * porsi;
+            const p = baseNutrition.protein * porsi;
+            const l = baseNutrition.lemak * porsi;
+            const s = baseNutrition.serat * porsi;
+            const g = baseNutrition.gula * porsi;
+            const n = baseNutrition.natrium * porsi;
+
+            document.getElementById('nf-kalori').textContent = `± ${k.toLocaleString('id-ID')} kkal`;
+            document.getElementById('nf-karbo').textContent = `± ${c} gram`;
+            document.getElementById('nf-protein').textContent = `${p} gram`;
+            document.getElementById('nf-lemak').textContent = `${l} gram`;
+            document.getElementById('nf-serat').textContent = `± ${s} gram`;
+            document.getElementById('nf-gula').textContent = `± ${g} gram`;
+            document.getElementById('nf-natrium').textContent = `± ${n.toLocaleString('id-ID')} mg`;
+
+            document.getElementById('bar-karbo-text').textContent = `± ${c} g`;
+            document.getElementById('bar-protein-text').textContent = `${p} g`;
+            document.getElementById('bar-lemak-text').textContent = `${l} g`;
+        });
+
+        // 5. Data & Filter Rencana Anggaran Biaya (RAB)
+        const rabItems = [
+            { kategori: 'kebab', label: 'Kebab Sehat', badgeClass: 'bg-leaf-100 text-leaf-800', bahan: 'Tortilla', jumlah: '10 pcs', harga: 142000 },
+            { kategori: 'kebab', label: 'Kebab Sehat', badgeClass: 'bg-leaf-100 text-leaf-800', bahan: 'Daging Ayam', jumlah: '2 kg', harga: 50000 },
+            { kategori: 'kebab', label: 'Kebab Sehat', badgeClass: 'bg-leaf-100 text-leaf-800', bahan: 'Selada', jumlah: '1 ikat', harga: 5000 },
+            { kategori: 'kebab', label: 'Kebab Sehat', badgeClass: 'bg-leaf-100 text-leaf-800', bahan: 'Timun', jumlah: '5 pcs', harga: 5000 },
+            { kategori: 'smoothie', label: 'Smoothie', badgeClass: 'bg-amber-100 text-amber-800', bahan: 'Mangga', jumlah: '1 kg', harga: 25000 },
+            { kategori: 'smoothie', label: 'Smoothie', badgeClass: 'bg-amber-100 text-amber-800', bahan: 'Pisang', jumlah: '10 pcs', harga: 38000 },
+            { kategori: 'smoothie', label: 'Smoothie', badgeClass: 'bg-amber-100 text-amber-800', bahan: 'Susu Full Cream', jumlah: '1 liter', harga: 30000 }
+        ];
+
+        function formatRupiah(angka) {
+            return 'Rp ' + angka.toLocaleString('id-ID');
+        }
+
+        function filterRAB(filter) {
+            const tbody = document.getElementById('rab-table-body');
+            const filtered = filter === 'all' ? rabItems : rabItems.filter(item => item.kategori === filter);
+
+            tbody.innerHTML = filtered.map(item => `
+                <tr class="hover:bg-cream-50/80 transition-colors">
+                    <td class="py-3.5 px-5 sm:px-6">
+                        <span class="inline-block px-2.5 py-1 rounded-lg text-xs font-bold ${item.badgeClass}">${item.label}</span>
+                    </td>
+                    <td class="py-3.5 px-5 sm:px-6 font-medium text-stone-800">${item.bahan}</td>
+                    <td class="py-3.5 px-5 sm:px-6 text-stone-600">${item.jumlah}</td>
+                    <td class="py-3.5 px-5 sm:px-6 font-semibold text-stone-900 text-right">${formatRupiah(item.harga)}</td>
+                </tr>
+            `).join('');
+
+            const total = filtered.reduce((acc, item) => acc + item.harga, 0);
+            const labelMap = {
+                all: 'Total Keseluruhan Anggaran',
+                kebab: 'Total Anggaran Kebab Sehat',
+                smoothie: 'Total Anggaran Smoothie Mangga Pisang'
+            };
+
+            document.getElementById('rab-total-label').textContent = labelMap[filter];
+            document.getElementById('rab-total-value').textContent = formatRupiah(total);
+
+            // Update active button styling
+            ['all', 'kebab', 'smoothie'].forEach(key => {
+                const btn = document.getElementById(`rab-btn-${key}`);
+                if (key === filter) {
+                    btn.className = 'rab-filter-btn px-5 py-2.5 rounded-2xl text-sm font-bold bg-leaf-600 text-white shadow-md transition-all';
+                } else {
+                    btn.className = 'rab-filter-btn px-5 py-2.5 rounded-2xl text-sm font-bold bg-white text-stone-700 hover:bg-leaf-50 border border-stone-200 transition-all';
+                }
+            });
+        }
+
+        // Inisialisasi tabel RAB saat pertama dimuat
+        filterRAB('all');
+
+        // 6. Tab Resep Interaktif & Reset Checklist
+        function switchRecipeTab(tab) {
+            const kebabTab = document.getElementById('tab-kebab');
+            const smoothieTab = document.getElementById('tab-smoothie');
+            const kebabContent = document.getElementById('content-kebab');
+            const smoothieContent = document.getElementById('content-smoothie');
+
+            if (tab === 'kebab') {
+                kebabTab.className = 'flex items-center gap-2 px-5 sm:px-7 py-3 rounded-xl font-display font-bold text-sm sm:text-base bg-leaf-600 text-white shadow-md transition-all';
+                smoothieTab.className = 'flex items-center gap-2 px-5 sm:px-7 py-3 rounded-xl font-display font-bold text-sm sm:text-base text-stone-600 hover:text-stone-900 transition-all';
+                kebabContent.classList.remove('hidden');
+                smoothieContent.classList.add('hidden');
+            } else {
+                smoothieTab.className = 'flex items-center gap-2 px-5 sm:px-7 py-3 rounded-xl font-display font-bold text-sm sm:text-base bg-mango-500 text-white shadow-md transition-all';
+                kebabTab.className = 'flex items-center gap-2 px-5 sm:px-7 py-3 rounded-xl font-display font-bold text-sm sm:text-base text-stone-600 hover:text-stone-900 transition-all';
+                smoothieContent.classList.remove('hidden');
+                kebabContent.classList.add('hidden');
+            }
+        }
+
+        function resetChecklists(containerId) {
+            const container = document.getElementById(containerId);
+            const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = false);
+        }
+    </script>
+</body>
+</html>
